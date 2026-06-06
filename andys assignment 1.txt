@@ -1,0 +1,51 @@
+Main Algorithm:
+ 
+1.  Get numPizzas                          // assume 1 to 5
+2.  total = 0
+3.  for i = 1 to numPizzas
+4.        Get radius[i]
+5.        Get price[i]
+6.        valuePerInch[i] = ComputeValue(radius[i], price[i])
+7.        total = total + price[i]
+8.  end 
+
+    // part c
+
+    delivery = 0
+
+    if total <= 50.00:
+	  delivery = 8
+
+    total = total + delivery
+
+
+    // part d
+
+    lowest = HIGHEST_DOUBLE_VALUE
+    lowestIndex = -1
+
+    Get numPizzas
+    for i = 1 to numPizzas
+	Get radius[i]
+	Get price[i]
+	current = ComputeValue(radius[i], price[i])
+	if current < lowest:
+		lowest = current
+		lowestIndex = i
+    end
+
+    // part e
+
+    display "Total Bill: "
+    new line
+    display "Delivery Fee: $" + delivery
+    new line
+    display "Best Deal Pizza: Pizza #" + lowestIndex + ", Price per square inch was " + lowest
+    new line
+    display "Grand Total: $" + total
+ 
+ 
+Subproblem — ComputeValue(radius, price):
+1.  area = 3.141592 * radius * radius
+2.  pricePerSquareInch = price / area
+3.  return pricePerSquareInch
