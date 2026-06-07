@@ -22,9 +22,19 @@ Main Algorithm:
           end if
 8.  end for
 
-    // part e
+    // part c
 
-    newTotal = ShippingCharge(total)
+    delivery = 0
+
+    if total >= 50.00 then
+       delivery = 0
+    else
+       delivery = 8
+    end if
+
+    newTotal = total + delivery
+
+	// part e
 
     display "Bill:"
     new line
@@ -39,15 +49,3 @@ Subproblem — ComputeValue(radius, price):
 1.  area = 3.141592 * radius * radius
 2.  pricePerSquareInch = price / area
 3.  return pricePerSquareInch
-
-// part c
-
-Subproblem - ShippingCharge(beforeTotal):
-    if beforeTotal >= 50.00 then
-       delivery = 0
-    else
-       delivery = 8
-    end if
-    
-    finalTotal = beforeTotal + delivery
-    return finalTotal
